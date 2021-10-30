@@ -208,7 +208,6 @@ class Ui_MainWindow(object):
         except:
             self.output.setText("ERROR")
     
-
     def remove_it(self):
         screen = self.output.text()
         screen = screen[:-1]
