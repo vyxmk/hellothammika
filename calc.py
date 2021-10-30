@@ -165,7 +165,7 @@ class Ui_MainWindow(object):
         self.dividebutt.setObjectName("dividebutt")
 
         self.delbutt = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.remove_it())
-        self.delbutt.setGeometry(QtCore.QRect(100, 80, 85, 45))
+        self.delbutt.setGeometry(QtCore.QRect(100, 80, 80, 45))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         font.setPointSize(12)
@@ -190,7 +190,11 @@ class Ui_MainWindow(object):
         try:
             answer = eval(screen)
             if len(str(answer)) <= 15:
-                self.output.setText(str(answer))
+                if answer % int(answer) == 0.0:
+                    self.output.setText(str(int(answer)))
+                else:
+                    self.output.setText(str(answer))
+            
             else:
                 num = 15
                 stranswer = str(answer)
@@ -201,7 +205,7 @@ class Ui_MainWindow(object):
                         stranswer = str(answer2)
                         num -= 1
                     self.output.setText(stranswer)
-                        
+                               
         except:
             self.output.setText("ERROR")
             
