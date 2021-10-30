@@ -186,16 +186,13 @@ class Ui_MainWindow(object):
 
    
     def math_it(self):
+      
         screen = self.output.text()
         try:
             answer = eval(screen)
             if len(str(answer)) <= 15:
-                if answer == 0.0:
-                    self.output.setText("0") 
-                elif answer % int(answer) == 0.0:
-                    self.output.setText(str(int(answer)))
-                else:
-                    self.output.setText(str(answer))  
+                self.output.setText(str(answer))
+            
             else:
                 num = 15
                 stranswer = str(answer)
@@ -206,7 +203,7 @@ class Ui_MainWindow(object):
                         stranswer = str(answer2)
                         num -= 1
                     self.output.setText(stranswer)
-                               
+                 
         except:
             self.output.setText("ERROR")
     
