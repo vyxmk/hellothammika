@@ -190,7 +190,9 @@ class Ui_MainWindow(object):
         try:
             answer = eval(screen)
             if len(str(answer)) <= 15:
-                if answer % int(answer) == 0.0:
+                if answer == 0.0:
+                    self.output.setText("0") 
+                elif answer % int(answer) == 0.0:
                     self.output.setText(str(int(answer)))
                 else:
                     self.output.setText(str(answer))  
@@ -224,11 +226,11 @@ class Ui_MainWindow(object):
     def press_it(self, pressed):
         screen = self.output.text()
         screen = str(screen)
-        if len(screen) <= 15:
-            if self.output.text() == "0":
-                self.output.setText(pressed)
-            else:
-                self.output.setText(f'{self.output.text()}{pressed}')
+
+        if self.output.text() == "0":
+            self.output.setText(pressed)
+        else:
+            self.output.setText(f'{self.output.text()}{pressed}')
 
     def c_it(self, pressed):
         if pressed == "C" :
