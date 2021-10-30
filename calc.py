@@ -193,8 +193,7 @@ class Ui_MainWindow(object):
                 if answer % int(answer) == 0.0:
                     self.output.setText(str(int(answer)))
                 else:
-                    self.output.setText(str(answer))
-            
+                    self.output.setText(str(answer))  
             else:
                 num = 15
                 stranswer = str(answer)
@@ -208,8 +207,7 @@ class Ui_MainWindow(object):
                                
         except:
             self.output.setText("ERROR")
-            
-
+    
 
     def remove_it(self):
         screen = self.output.text()
@@ -223,8 +221,6 @@ class Ui_MainWindow(object):
             pass
         else:
             self.output.setText(f"{screen}.")
-
-
 
     def press_it(self, pressed):
         screen = self.output.text()
