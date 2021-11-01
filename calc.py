@@ -191,7 +191,12 @@ class Ui_MainWindow(object):
         try:
             answer = eval(screen)
             if len(str(answer)) <= 15:
-                self.output.setText(str(answer))
+                if answer == 0.0:
+                    self.output.setText("0")
+                if answer >= 1 and answer % int(answer) == 0.0:
+                    self.output.setText(str(int(answer)))
+                else:
+                    self.output.setText(str(answer))
             
             else:
                 num = 15
